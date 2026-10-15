@@ -20,6 +20,7 @@ namespace C__Task_6
         public override void TakeDamage(int amount)
         {
             base.TakeDamage(amount);
+            Console.WriteLine("Helth" + Health);
         }
     }
 }

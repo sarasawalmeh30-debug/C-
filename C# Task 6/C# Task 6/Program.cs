@@ -16,39 +16,22 @@ namespace C__Task_6
             Warrior warrior = new Warrior("Alex", 80);
             Wizard wizard = new Wizard("Luna", 70);
 
-            List<GameCharacter> characters =
-                new List<GameCharacter>();
-
-            characters.Add(warrior);
-            characters.Add(wizard);
+            //GameCharacter[] characters = { warrior, wizard };
+             List<GameCharacter> characters = new List<GameCharacter>() { warrior, wizard };
 
             foreach (GameCharacter character in characters)
             {
-                Console.WriteLine(
-                    character is Warrior
-                    ? "Warrior " + character.Name + " enters the game!"
-                    : "Wizard " + character.Name + " enters the game!");
 
                 character.UseSpecialAbility();
-                character.TakeDamage(10);
-
-                if (character is Warrior)
-                {
-                    character.Heal();
-                    character.Heal(15);
-                }
-
-                Console.WriteLine();
             }
-
-            HealthPotion potion =
-                new HealthPotion("Health Potion");
+            warrior.TakeDamage(10);
+            wizard.TakeDamage(10);
+            HealthPotion potion = new HealthPotion("Health Potion");
 
             potion.Collect();
-
             potion.Use(wizard, "15");
             potion.Use(wizard, "abc");
-        
-    }
+
+        }
     }
 }

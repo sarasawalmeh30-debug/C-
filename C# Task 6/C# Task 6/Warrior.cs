@@ -25,9 +25,9 @@ namespace C__Task_6
                 return;
             }
 
-            int reducedDamage = Math.Max(0, amount - 2);
-
-            base.TakeDamage(reducedDamage);
+            Health = Health - (amount - 2);
+            Console.WriteLine(Name + " takes " + amount + " damage.");
+            Console.WriteLine(Name + "'s health: " + Health);
         }
     }
 }

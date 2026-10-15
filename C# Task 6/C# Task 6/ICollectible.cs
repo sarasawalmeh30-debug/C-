@@ -29,21 +29,18 @@ namespace C__Task_6
         {
             try
             {
-                int amount = int.Parse(amountText);
-
+                int amount = Convert.ToInt32(amountText);
                 character.Heal(amount);
             }
             catch (FormatException)
             {
                 Console.WriteLine();
-                Console.WriteLine(
-                    "Invalid input! Please enter a number.");
+                Console.WriteLine("Invalid input! Please enter a number.");
             }
             catch (OverflowException)
             {
                 Console.WriteLine();
-                Console.WriteLine(
-                    "Invalid input! Please enter a number.");
+                Console.WriteLine("Invalid input! Please enter a number.");
             }
         }
     }

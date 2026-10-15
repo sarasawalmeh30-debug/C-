@@ -9,7 +9,7 @@ namespace C__Task_6
     abstract class GameCharacter
     {
         private string _name;
-        private int _health;
+        protected int _health;
 
         public string Name
         {
@@ -17,7 +17,7 @@ namespace C__Task_6
             private set { _name = value; }
         }
 
-        protected int Health
+        public int Health
         {
             get { return _health; }
             set
@@ -52,7 +52,9 @@ namespace C__Task_6
             Console.WriteLine(Name + " takes " + amount + " damage.");
             Console.WriteLine(Name + "'s health: " + Health);
         }
-
+        
+        ///////////////////////////////////////////////////////////////
+       
         public void Heal()
         {
             Health += 10;
