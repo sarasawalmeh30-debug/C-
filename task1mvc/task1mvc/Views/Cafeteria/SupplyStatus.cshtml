@@ -4,6 +4,22 @@
 @{
     Layout = null;
 }
+<style>
+    .status-available {
+        background-color: green;
+        color: white;
+    }
+
+    .status-low {
+        background-color: yellow;
+        color: black;
+    }
+
+    .status-out {
+        background-color: red;
+        color: white;
+    }
+</style>
 @{
     string[] products = { "Water", "Orange Juice", "Coffee", "Sandwich", "Chocolate" };
 
@@ -50,24 +66,18 @@
 
                         <td>@quantities[i]</td>
                         <td>
-                    @if (statuses[i] == "Available")
-                    {
-                        <span class="badge bg-success">
-                            @statuses[i]
-                        </span>
-                    }
-                    else if (statuses[i] == "Low Stock")
-                    {
-                        <span class="badge bg-warning text-dark">
-                            @statuses[i]
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">
-                            @statuses[i]
-                        </span>
-                    }
+                   @if (statuses[i] == "Available")
+                   {
+                       <span class="badge status-available">@statuses[i] </span>
+                   }
+                   else if (statuses[i] == "Low Stock")
+                   {
+                       <span class="badge status-low"> @statuses[i]</span>
+                   }
+                   else
+                   {
+                       <span class="badge status-out"> @statuses[i]</span>
+                   }
                         </td>
 
                     </tr>
