@@ -1,0 +1,23 @@
+﻿body {
+    background-color: #f0f8ff;
+}
+
+h1 {
+    color: #1d3557;
+    text-align: center;
+}
+
+h2 {
+    color: #457b9d;
+}
+
+ul {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+li {
+    font-size: 18px;
+    margin: 10px;
+}
