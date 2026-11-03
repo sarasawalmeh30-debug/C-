@@ -1,0 +1,14 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+<h1>• Page Title: @ViewData["PageTitle"]</h1>
+<h1>• Manager Name :@ViewData["ManagerName"]</h1>
+<h1>• Number of Products: @ViewData["NumberofProducts"]</h1>
+<p></p>
+@foreach (string i in (string[])ViewData["Products"])
+{
+    <h5 class="card-title">@i</h5>
+}
