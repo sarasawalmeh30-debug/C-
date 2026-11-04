@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Supply Request Review</h2>
+
+<h3>Products Details</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+            <th>Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in ViewBag.Products)
+        {
+            <tr>
+            <th> @product.ProductName</th>
+            <th> @product.Quantity</th>
+            <th> @product.UnitPrice</th>
+            <th> @product.Total</th>
+            <th> @product.Priority</th>
+            </tr>
+        }
+    </tbody>
+</table>
+<h3>Cost Summary</h3>
+
+<p>Subtotal: @ViewBag.Subtotal JD</p>
+
+<p>Priority: @ViewBag.Priority</p>
+
+<p>Preparation Fee: @ViewBag.PreparationFee JD</p>
+
+<p>Discount: @ViewBag.Discount JD</p>
+
+<h3>Final Total: @ViewBag.FinalTotal JD</h3>
+
+<br />
+
+<a href="@Url.Action("ConfirmRequest", "SupplyRequest")"> Confirm Request</a>
+
+<br />
+<br />
+
+<a href="@Url.Action("ClearDraft", "SupplyRequest")"> Clear Draft</a>
+
+<br />
+<br />
+
+<a href="@Url.Action("Index", "SupplyRequest")"> Back to Create Request</a>
+

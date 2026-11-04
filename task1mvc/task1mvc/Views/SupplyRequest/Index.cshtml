@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@if (ViewBag.Error != null)
+{
+    <p class="text-danger">@ViewBag.Error</p>
+}
+<form method="post" action=@Url.Action("AddItem", "SupplyRequest")>
+    <label>Product Name :</label>
+    <input type="text" name="ProductName" />
+    <br />
+    <label>Category:</label>
+    <input type="text" name="Category" />
+    <br />
+    <label>Quantity :</label>
+    <input type="number" name="Quantity" />
+    <br />
+    <label>Unit Price :</label>
+    <input type="number" name="UnitPrice" />
+    <label>Priority :</label>
+    <select name="priority">
+      <option value="Normal">Normal</option>
+      <option value="Urgent">Urgent</option>
+      <option value="Emergency">Emergency</option>
+    </select>
+    <br /><br />
+    <button type="submit">Add Product</button>
+</form>
+<a href="@Url.Action("Review", "SupplyRequest")">Review Request</a>
+<hr />
+
+<h3>Default Request Priority</h3>
+
+@if (ViewBag.PreferredPriority != null)
+{
+    <p>Your preferred request priority is @ViewBag.PreferredPriority. </p>
+}
+
+<form method="post" action="@Url.Action("SavePreference", "SupplyRequest")">
+
+    <label>Select Default Priority:</label>
+
+    <select name="priority">
+
+        <option value="Normal">Normal</option>
+
+        <option value="Urgent">Urgent</option>
+
+        <option value="Emergency">Emergency</option>
+
+    </select>
+
+    <br /><br />
+
+    <button type="submit">Save Preference</button>
+
+</form>
