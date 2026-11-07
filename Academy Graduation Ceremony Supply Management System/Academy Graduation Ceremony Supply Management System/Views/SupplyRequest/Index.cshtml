@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Academy_Graduation_Ceremony_Supply_Management_System.Models.Offer>
+<h2>Supply Offers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th>Offer</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var offer in Model)
+        {
+            <tr>
+                <td>@offer.Category</td>
+                <td>@offer.SupplierName</td>
+                <td>@offer.OfferName</td>
+                <td>@offer.Quantity</td>
+                <td>@offer.UnitPrice JD</td>
+                
+            </tr>
+        }
+    </tbody>
+    <br />
+</table>
+<form asp-controller="SupplyRequest" asp-action="SelectOffer" method="post">
+    <label>Category 1: Graduation Certificates</label>
+    <select name="certificateSupplier">
+        <option value="Supplier A">Supplier A</option>
+        <option value="Supplier B">Supplier B</option>
+        <option value="Supplier C">Supplier C</option>
+    </select>
+
+    <br />
+
+    <label>Category 2: Hospitality</label>
+    <select name="hospitalitySupplier">
+        <option value="Supplier D">Supplier D</option>
+        <option value="Supplier E">Supplier E</option>
+        <option value="Supplier F">Supplier F</option>
+    </select>
+
+    <br />
+
+    <label>Category 3: Graduation Gifts</label>
+    <select name="giftSupplier">
+        <option value="Supplier G">Supplier G</option>
+        <option value="Supplier H">Supplier H</option>
+        <option value="Supplier I">Supplier I</option>
+    </select>
+    <br />
+    <button type="submit">Select these offers</button>
+</form>
