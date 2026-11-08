@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Supplier_model
+
+<h2>Add Category</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Name :</label>
+        <input type="text" name="Name" />
+    </div>
+
+    <div>
+        <label>Email</label>
+        <textarea name="Email"></textarea>
+
+    </div>
+    <div>
+        <label>Phone</label>
+        <textarea name="Phone"></textarea>
+
+    </div>
+    <button type="submit">Save</button>
+</form>

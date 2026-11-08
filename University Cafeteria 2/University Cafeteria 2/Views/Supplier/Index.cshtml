@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Supplier_model>
+
+<h2>Supplier</h2>
+
+<a asp-action="Create">Add Supplier</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Supplier in Model)
+        {
+            <tr>
+                <td>@Supplier.Id</td>
+                <td>@Supplier.Name</td>
+                <td>@Supplier.Email</td>
+                <td>@Supplier.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>
