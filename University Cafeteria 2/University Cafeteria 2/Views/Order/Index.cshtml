@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Order>
+
+<h2>Order</h2>
+
+<a asp-action="Create">Add Order</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CustomerName</th>
+            <th>TotalPrice</th>
+            <th>Status</th>
+            <th>OrderDate</th>
+            <th>EmployeeId</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Order in Model)
+        {
+            <tr>
+                <td>@Order.Id</td>
+                <td>@Order.CustomerName</td>
+                <td>@Order.TotalPrice</td>
+                <th>@Order.Status</th>
+                <th>@Order.OrderDate</th>
+                <th>@Order.EmployeeId</th>
+                <td class="actions">
+                    <a asp-action="Edit" asp-route-id="@Order.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@Order.Id">Details</a>
+                    <form asp-action="Delete" asp-route-id="@Order.Id" method="post"
+                          onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

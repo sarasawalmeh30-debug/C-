@@ -16,6 +16,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,14 @@
                 <td>@Supplier.Name</td>
                 <td>@Supplier.Email</td>
                 <td>@Supplier.Phone</td>
+                 <td class="actions">
+                    <a asp-action="Edit" asp-route-id="@Supplier.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@Supplier.Id">Details</a>
+                    <form asp-action="Delete" asp-route-id="@Supplier.Id" method="post"
+                          onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>

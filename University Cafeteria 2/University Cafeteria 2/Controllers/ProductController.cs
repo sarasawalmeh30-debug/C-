@@ -38,5 +38,32 @@ namespace University_Cafeteria_2.Controllers
             ViewBag.Suppliers = new SelectList(
                 context.Suppliers.ToList(), "Id", "Name");
         }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            LoadLists();
+            var product = context.Products.Find(id);
+            return View(product);
+        }
+        [HttpPost]
+        public IActionResult Edit(Product_model product)
+        {
+            context.Products.Update(product);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        public IActionResult Delete(int id)
+        {
+            var product = context.Products.Find(id);
+            context.Products.Remove(product);
+            context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Details(int id)
+        {
+            var product = context.Products.Find(id);
+            return View(product);
+        }
     }
 }

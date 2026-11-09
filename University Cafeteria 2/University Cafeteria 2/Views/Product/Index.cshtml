@@ -18,6 +18,7 @@
             <th>Quantity</th>
             <th>Supplier</th>
             <th>Category</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +31,14 @@
                 <td>@Products.Quantity</td>
                 <th>@Products.Supplier_modelId</th>
                 <th>@Products.Category_modelId</th>
+                 <td class="actions">
+                    <a asp-action="Edit" asp-route-id="@Products.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@Products.Id">Details</a>
+                    <form asp-action="Delete" asp-route-id="@Products.Id" method="post"
+                          onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using University_Cafeteria_2.Data;
 using University_Cafeteria_2.Models;
 
@@ -27,6 +28,30 @@ namespace University_Cafeteria_2.Controllers
             context.Categories.Add(c);
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Edit(int id ) {
+            var category = context.Categories.Find(id);
+            return View(category);
+        }
+        [HttpPost]
+        public IActionResult Edit(Category_model catagory)
+        {
+            context.Categories.Update(catagory);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+           
+        }
+        public IActionResult Delete(int id) {
+            var category = context.Categories.Find(id);
+            context.Categories.Remove(category);
+            context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Details(int id)
+        {
+            var category = context.Categories.Find(id);
+            return View(category);
         }
     }
 }

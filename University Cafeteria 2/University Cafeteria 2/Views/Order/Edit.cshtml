@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Order
+
+<h2>Edit Order</h2>
+
+<form asp-action="Edit" method="post">
+    <div>
+        <label>Customer Name :</label>
+        <input type="text" name="Name" value="@Model.CustomerName"/>
+    </div>
+
+    <div>
+        <label>Total Price</label>
+        <input name="Description" value="@Model.TotalPrice" />
+
+    </div>
+     <div>
+        <label>Status  :</label>
+        <input type="text" name="Name" value="@Model.Status"/>
+    </div>
+
+    <div>
+        <label>Order Date</label>
+        <input name="Description" value="@Model.OrderDate" />
+
+    </div>
+     <div>
+        <label>Customer Name :</label>
+        <input type="text" name="Name" value="@Model.CustomerName"/>
+    </div>
+
+    <button type="submit">Save</button>
+</form>

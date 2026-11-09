@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Order
+
+<h2>Add Order</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label >Customer Name :</label>
+        <input type="text" name="CustomerName" />
+    </div>
+
+    <div>
+        <label>Total Price :</label>
+        <textarea name="TotalPrice"></textarea>
+        
+    </div>
+      <div>
+        <label > Status :</label>
+        <input type="text" name="Status" />
+    </div>
+
+    <div>
+        <label>Order Date :</label>
+        <textarea name="OrderDate"></textarea>
+        
+    </div>
+     <div>
+        <label>Employee Id</label>
+        <select asp-for="EmployeeId" asp-items="ViewBag.Employee">
+            <option value="">-- choose Employee  --</option>
+        </select>
+    </div>
+
+    <button type="submit">Save</button>
+</form>

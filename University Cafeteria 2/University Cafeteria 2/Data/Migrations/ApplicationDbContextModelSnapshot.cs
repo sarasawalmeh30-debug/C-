@@ -245,6 +245,74 @@ namespace University_Cafeteria_2.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("University_Cafeteria_2.Models.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Salary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employee");
+                });
+
+            modelBuilder.Entity("University_Cafeteria_2.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Order");
+                });
+
             modelBuilder.Entity("University_Cafeteria_2.Models.Product_model", b =>
                 {
                     b.Property<int>("Id")
@@ -354,6 +422,17 @@ namespace University_Cafeteria_2.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("University_Cafeteria_2.Models.Order", b =>
+                {
+                    b.HasOne("University_Cafeteria_2.Models.Employee", "employee")
+                        .WithMany("order")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("employee");
+                });
+
             modelBuilder.Entity("University_Cafeteria_2.Models.Product_model", b =>
                 {
                     b.HasOne("University_Cafeteria_2.Models.Category_model", "Category_model")
@@ -376,6 +455,11 @@ namespace University_Cafeteria_2.Data.Migrations
             modelBuilder.Entity("University_Cafeteria_2.Models.Category_model", b =>
                 {
                     b.Navigation("Productmodel");
+                });
+
+            modelBuilder.Entity("University_Cafeteria_2.Models.Employee", b =>
+                {
+                    b.Navigation("order");
                 });
 
             modelBuilder.Entity("University_Cafeteria_2.Models.Supplier_model", b =>

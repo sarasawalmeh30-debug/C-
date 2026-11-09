@@ -28,5 +28,31 @@ namespace University_Cafeteria_2.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var Supplier = context.Suppliers.Find(id);
+            return View(Supplier);
+        }
+        [HttpPost]
+        public IActionResult Edit(Supplier_model Supplier)
+        {
+            context.Suppliers.Update(Supplier);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        public IActionResult Delete(int id)
+        {
+            var Supplier = context.Suppliers.Find(id);
+            context.Suppliers.Remove(Supplier);
+            context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Details(int id)
+        {
+            var Supplier = context.Suppliers.Find(id);
+            return View(Supplier);
+        }
     }
 }

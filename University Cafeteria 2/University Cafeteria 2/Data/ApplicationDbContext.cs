@@ -13,5 +13,7 @@ namespace University_Cafeteria_2.Data
         public DbSet<Category_model> Categories { get; set; }
         public DbSet<Product_model> Products { get; set; }
         public DbSet<Supplier_model> Suppliers { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Employee> Employee { get; set; }
     }
 }
