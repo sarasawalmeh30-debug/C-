@@ -44,14 +44,10 @@ namespace task8.Controllers
                     return RedirectToAction("Login");
                 }
 
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
             }
 
 
-            return View(register);
+            return View();
         }
 
 
