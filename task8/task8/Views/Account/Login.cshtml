@@ -1,0 +1,15 @@
+﻿@model LoginDTO
+
+<form method="post" action=@Url.Action("Login", "Account")>
+    <label>Email</label><br />
+    <input name="Email" type="email" />
+    <br />
+    <br />
+    <label>Password</label>
+    <input name="Password" type="password" />
+    <br />
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <br />
+    <button type="submit">Login</button>
+</form>
