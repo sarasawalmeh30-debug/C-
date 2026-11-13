@@ -1,0 +1,16 @@
+﻿@model RegisterTDO
+<form method="post" asp-action="Register" asp-controller="Register">
+    <label asp-for="Name">Name</label>
+    <input name="Name" type="text" />
+    <br />
+    <label asp-for="Email">Email</label>
+    <input name="Email" type="email"  />
+    <br />
+    <label asp-for="Password">Password</label>
+    <input name="Password" type="password" />
+    <br />
+    <label asp-for="ComPassword">Comfirm Password</label>
+    <input name="ComPassword" type="password" />
+    <br />
+    <button type="submit"> Register</button>
+</form>

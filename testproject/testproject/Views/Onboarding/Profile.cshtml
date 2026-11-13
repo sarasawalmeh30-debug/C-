@@ -1,0 +1,16 @@
+@model testproject.Models.EmployeeProfileViewModel
+@{ ViewData["Title"] = "Complete your employee profile"; }
+<div class="row justify-content-center"><div class="col-lg-7">
+<p class="eyebrow">FIRST SIGN IN · STEP 1 OF 4 · @ViewBag.RoleLabel</p>
+<h1 class="h3 mb-2">Welcome, @ViewBag.RoleLabel</h1>
+<p class="page-lead">Add the details missing from your account. Your screen is based on your assigned role.</p>
+<form asp-action="Profile" method="post" class="onboarding-card form-stack">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div><label asp-for="FullName" class="form-label">Full name</label><input asp-for="FullName" class="form-control"/><span asp-validation-for="FullName" class="text-danger"></span></div>
+    <div><label asp-for="EmployeeNumber" class="form-label">Employee number</label><input asp-for="EmployeeNumber" class="form-control"/><span asp-validation-for="EmployeeNumber" class="text-danger"></span></div>
+    <div><label asp-for="HireDate" class="form-label">Hire date</label><input asp-for="HireDate" type="date" class="form-control"/><span asp-validation-for="HireDate" class="text-danger"></span></div>
+    <div><label asp-for="WorkPhone" class="form-label">Work phone</label><input asp-for="WorkPhone" class="form-control"/><span asp-validation-for="WorkPhone" class="text-danger"></span></div>
+    <div><label asp-for="PreferredLanguage" class="form-label">Preferred language</label><select asp-for="PreferredLanguage" class="form-select"><option value="en">English</option><option value="ar">Arabic</option></select></div>
+    <button class="btn btn-primary" type="submit">Save and continue</button>
+</form></div></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

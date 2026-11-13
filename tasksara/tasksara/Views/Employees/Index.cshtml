@@ -1,0 +1,65 @@
+@model IEnumerable<tasksara.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PasswordEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manager)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tasks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.NameEmployee)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.EmailEmployee)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PasswordEmployee)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ManagerId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Manager)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Tasks)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

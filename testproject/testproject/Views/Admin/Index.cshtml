@@ -1,0 +1,7 @@
+@model IReadOnlyList<testproject.Models.StaffAccountRow>
+@{ ViewData["Title"] = "Manage staff accounts"; }
+<div class="page-heading"><div><p class="eyebrow">ADMIN</p><h1>Staff accounts</h1><p class="page-lead">Create employee accounts and choose the role each person will see after signing in.</p></div><a class="btn btn-primary" asp-action="Create">Create staff account</a></div>
+@if (TempData["CreatedAccount"] is string message) { <div class="alert alert-success">@message</div> }
+<div class="onboarding-card table-wrap"><table class="table align-middle mb-0"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Onboarding</th></tr></thead><tbody>
+@foreach (var account in Model) { <tr><td>@account.FullName</td><td>@account.Email</td><td><span class="role-pill">@account.Role</span></td><td>@account.OnboardingStatus</td></tr> }
+</tbody></table></div>

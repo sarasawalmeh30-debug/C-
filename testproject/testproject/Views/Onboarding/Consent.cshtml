@@ -1,0 +1,12 @@
+@{ ViewData["Title"] = "Demo acknowledgement"; }
+<div class="row justify-content-center"><div class="col-lg-7">
+    <p class="eyebrow">ONBOARDING · STEP 4 OF 4</p>
+    <h1>Finish onboarding</h1>
+    <p class="page-lead">One last step before you continue to the workspace.</p>
+    <form asp-action="Consent" method="post" class="onboarding-card form-stack">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="demo-note"><strong>About this demo:</strong> the fingerprint and face steps were visual previews. They did not collect or store biometric information.</div>
+        <label class="form-check demo-check"><input class="form-check-input" type="checkbox" name="accepted" value="true"/><span class="form-check-label">I understand that these biometric steps are demonstrations only.</span></label>
+        <button type="submit" class="btn btn-primary">Finish onboarding</button>
+    </form>
+</div></div>

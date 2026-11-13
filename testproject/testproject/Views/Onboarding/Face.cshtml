@@ -1,0 +1,11 @@
+@{ ViewData["Title"] = "Face setup demo"; }
+<div class="row justify-content-center"><div class="col-lg-7">
+    <p class="eyebrow">ONBOARDING · STEP 3 OF 4</p>
+    <h1>Face setup</h1>
+    <p class="page-lead">This preview shows where face setup will appear in the onboarding flow.</p>
+    <section class="onboarding-card form-stack">
+        <div class="face-demo-frame" aria-hidden="true"><div class="face-demo-ring"><div class="face-demo-head"></div><div class="face-demo-shoulders"></div></div></div>
+        <div class="demo-note"><strong>Demo screen only.</strong> The camera is not started, and no face photo or face data is captured or saved.</div>
+        <form asp-action="Face" method="post"><button type="submit" name="continueDemo" value="true" class="btn btn-primary">Continue demo</button></form>
+    </section>
+</div></div>

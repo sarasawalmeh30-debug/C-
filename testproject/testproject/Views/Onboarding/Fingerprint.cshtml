@@ -1,0 +1,17 @@
+@model testproject.Models.FingerprintDemoViewModel
+@{ ViewData["Title"] = "Fingerprint setup demo"; }
+<div class="row justify-content-center"><div class="col-lg-7">
+    <p class="eyebrow">ONBOARDING · STEP 2 OF 4</p>
+    <h1>Fingerprint setup</h1>
+    <p class="page-lead">Choose a name for the device you would use to sign in.</p>
+    <section class="onboarding-card form-stack">
+        <div class="biometric-demo-icon" aria-hidden="true">◎</div>
+        <div class="demo-note"><strong>Demo screen only.</strong> This page does not scan a fingerprint, open Windows Hello, or save biometric data.</div>
+        <form asp-action="Fingerprint" method="post" class="form-stack">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div><label asp-for="DeviceName" class="form-label">Device name</label><input asp-for="DeviceName" class="form-control" placeholder="For example: My laptop"/><span asp-validation-for="DeviceName" class="text-danger"></span></div>
+            <button type="submit" class="btn btn-primary">Continue demo</button>
+        </form>
+    </section>
+</div></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

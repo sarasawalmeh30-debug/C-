@@ -1,0 +1,15 @@
+@model testproject.Models.StaffAccountViewModel
+@{ ViewData["Title"] = "Create staff account"; }
+<div class="row justify-content-center"><div class="col-lg-7">
+<p class="eyebrow">ADMIN · NEW ACCOUNT</p><h1>Create a staff account</h1>
+<p class="page-lead">The employee will use the temporary password once, change it, then complete the onboarding fields for their role.</p>
+<form asp-action="Create" method="post" class="onboarding-card form-stack">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div><label asp-for="FullName" class="form-label">Full name</label><input asp-for="FullName" class="form-control"/><span asp-validation-for="FullName" class="text-danger"></span></div>
+    <div><label asp-for="Email" class="form-label">Work email</label><input asp-for="Email" class="form-control"/><span asp-validation-for="Email" class="text-danger"></span></div>
+    <div><label asp-for="Role" class="form-label">Role</label><select asp-for="Role" class="form-select"><option value="">Choose a role</option><option value="SourcingManager">Sourcing Manager</option><option value="SourcingOfficer">Sourcing Officer</option><option value="EvaluationCommittee">Committee</option><option value="TopCommittee">Top Committee</option></select><span asp-validation-for="Role" class="text-danger"></span></div>
+    <div><label asp-for="JobTitle" class="form-label">Job title <span class="optional-label">Optional</span></label><input asp-for="JobTitle" class="form-control"/><span asp-validation-for="JobTitle" class="text-danger"></span></div>
+    <div><label asp-for="TemporaryPassword" class="form-label">Temporary password</label><input asp-for="TemporaryPassword" class="form-control"/><span asp-validation-for="TemporaryPassword" class="text-danger"></span><small class="form-text">Use at least 10 characters with upper and lower case, a number, and a symbol.</small></div>
+    <div class="form-actions"><a asp-action="Index" class="btn btn-outline-secondary">Cancel</a><button type="submit" class="btn btn-primary">Create account</button></div>
+</form></div></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

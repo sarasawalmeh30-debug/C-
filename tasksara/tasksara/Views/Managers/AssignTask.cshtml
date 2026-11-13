@@ -1,0 +1,65 @@
+﻿@model IEnumerable<tasksara.Models.Employee>
+
+<h2>Assign Task To Employee</h2>
+
+<form asp-action="AssignTask" method="post">
+
+    <div class="mb-3">
+        <label>Choose Employee</label>
+
+        <select name="employeeId" class="form-control">
+            @foreach (var emp in ViewBag.Employees)
+            {
+                <option value="@emp.EmployeeId">
+                    @emp.NameEmployee
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Choose Task</label>
+
+        <select name="taskId" class="form-control">
+            @foreach (var task in ViewBag.Tasks)
+            {
+                <option value="@task.TaskId">
+                    @task.TaskName
+                </option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Assign Task
+    </button>
+
+</form>
+
+<hr />
+
+<h3>Assignment Results</h3>
+
+@foreach (var employee in Model)
+{
+    <div class="card p-3 mb-3">
+
+        <h4>@employee.NameEmployee</h4>
+
+        <h5>Assigned Tasks:</h5>
+
+        @if (employee.Tasks.Any())
+        {
+            @foreach (var task in employee.Tasks)
+            {
+                <p> @task.TaskName </p>
+            }
+        }
+        else
+        {
+            <p>No Tasks Assigned</p>
+        }
+
+    </div>
+}
+

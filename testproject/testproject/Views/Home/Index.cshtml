@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Sourcing workspace";
+}
+<section class="home-hero onboarding-card">
+    <p class="eyebrow">SOURCING &amp; TENDER MANAGEMENT</p>
+    <h1>A clear start for every sourcing role.</h1>
+    <p class="page-lead">Supplier registration and staff access come together in one workspace. Your first sign in collects only the details needed for your account.</p>
+    @if (User.Identity?.IsAuthenticated != true)
+    {
+        <div class="home-actions">
+            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">Register as a supplier</a>
+            <a class="btn btn-outline-secondary" asp-area="Identity" asp-page="/Account/Login">Staff login</a>
+        </div>
+    }
+</section>
+<div class="home-grid">
+    <article class="onboarding-card"><span class="home-mark">01</span><h2>Suppliers</h2><p>Register with email and password, then complete your company profile after your first sign in.</p></article>
+    <article class="onboarding-card"><span class="home-mark">02</span><h2>Sourcing team</h2><p>Admins create accounts for Sourcing Managers and Sourcing Officers. Each employee completes their profile on first sign in.</p></article>
+    <article class="onboarding-card"><span class="home-mark">03</span><h2>Committees</h2><p>Committee and Top Committee accounts are created by an admin and receive the same employee details required by the database.</p></article>
+</div>

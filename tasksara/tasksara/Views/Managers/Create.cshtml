@@ -1,0 +1,48 @@
+@model tasksara.Models.Manager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Manager</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NameManager" class="control-label"></label>
+                <input asp-for="NameManager" class="form-control" />
+                <span asp-validation-for="NameManager" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmailManager" class="control-label"></label>
+                <input asp-for="EmailManager" class="form-control" />
+                <span asp-validation-for="EmailManager" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PasswordManager" class="control-label"></label>
+                <input asp-for="PasswordManager" class="form-control" />
+                <span asp-validation-for="PasswordManager" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Employees" class="control-label"></label>
+                <input asp-for="Employees" class="form-control" />
+                <span asp-validation-for="Employees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
